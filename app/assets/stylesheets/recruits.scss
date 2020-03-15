@@ -1,0 +1,23 @@
+// Place all the styles related to the recruits controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.recruit_new_form input{
+  margin: auto;
+  width: 700px;
+}
+.recruit_new_form label{
+  margin-left: 205px;
+  margin-top: 30px;
+}
+
+.recruit_new_form_area textarea{
+  width: 700px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.recruit_new_form_area label{
+  margin-left: 205px;
+  margin-top: 30px;
+}

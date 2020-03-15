@@ -1,0 +1,48 @@
+.profile_edit_all
+  .profile_edit_title.text-center
+    h1 プロフィール確認・変更
+
+  .profile_table
+    .profile_id
+      .profile_label
+        h3 = User.human_attribute_name(:id)
+      .profile_text
+        p = @profile.id
+
+    .profile_name
+      .profile_label
+        h3 = User.human_attribute_name(:name)
+      .profile_text
+        p = @profile.name
+
+    .profile_email
+      .profile_label
+        h3 = User.human_attribute_name(:email)
+      .profile_text
+        p = @user.email
+
+  .form_errors.text-center
+    - if @user.errors.present?
+      ul#error_explanation
+        - @user.errors.full_messages.each do |message|
+            li= message
+
+  = form_with model: @user, local: true do |f|
+
+    .new_form.form-group.row
+      = f.label :leve, 'お住まい' ,class: 'col-sm-4 text-center'
+      = f.text_field :leve, class: 'team_text form-control' , id: 'profile_live'
+
+    .new_form.form-group.row
+      = f.label :sex, '性別' ,class: 'col-sm-4 text-center'
+      = f.radio_button :sex, :male
+      = f.label :sex, "男性", {value: :"男性", style: "display: inline-block;"}
+      = f.radio_button :sex, :female
+      = f.label :sex, "女性", {value: :"女性", style: "display: inline-block;"}
+
+    .new_form.form-group.row
+      = f.label :Birthday, '生年月日', class: 'col-sm-4 text-center'
+      = f.text_field :age, class: 'team_text form-control' , id: 'profile_Birthday'
+
+    .team_new_button.text-center
+      = f.submit 'プロフィール更新', class: 'new_button btn-lg btn btn-primary'

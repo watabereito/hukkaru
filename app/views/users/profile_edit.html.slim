@@ -1,0 +1,46 @@
+.profile_edit_all
+  .profile_edit_title.text-center
+    h1 プロフィール確認・変更
+
+  .profile_table
+    .profile_id
+      .profile_label
+        h3 = User.human_attribute_name(:id)
+      .profile_text
+        p = @profile.id
+
+    .profile_name
+      .profile_label
+        h3 = User.human_attribute_name(:name)
+      .profile_text
+        p = @profile.name
+
+    .profile_email
+      .profile_label
+        h3 = User.human_attribute_name(:email)
+      .profile_text
+        p = @profile.email
+
+
+  = form_with model: @profile, local: true do |f|
+    .new_enjoy_form
+      .new_passion.form-group.row
+        = f.label :live, 'お住まい', class: 'mr-5', class: 'col-sm-4 text-center'
+        = f.select :live, [['北海道'], ['青森'], ['岩手'],['宮城'],['秋田'],['山形'], ['福島'],['茨城'],['栃木'],['群馬'],['埼玉'],['千葉'],['東京'],['神奈川'],['新潟'],['富山'],['石川'],['福井'],['山梨'],['長野'],['岐阜'],['静岡'],['愛知'],['三重'],['滋賀'],['京都'],['大阪'],['兵庫'],['奈良'],['和歌山'],['鳥取'],['島根'],['岡山'],['広島'],['山口'],['徳島'],['香川'],['愛媛'],['高知'],['福岡'],['佐賀'],['長崎'],['熊本'],['大分'],['宮崎'],['鹿児島'],['沖縄']]
+
+    .new_form.form-group.row
+      = f.label :sex, '性別' ,class: 'col-sm-4 text-center'
+      .profile_sex.text-center
+        .profile_sex_male
+          = f.radio_button :sex, :"男性"
+          = f.label :sex, "男性", {value: :"男性", style: "display: inline-block;"}
+        .profile_sex_female
+          = f.radio_button :sex, :"女性"
+          = f.label :sex, "女性", {value: :"女性", style: "display: inline-block;"}
+
+    .new_form.form-group.row
+      = f.label :Birthday, '生年月日', class: 'col-sm-4 text-center'
+      = f.text_field :Birthday, class: 'team_text form-control' , id: 'user_Birthday',placeholder:"例) 1999/05/07"
+
+    .profile_button.text-center
+      = f.submit 'プロフィール更新', class: 'profile_new_button btn-lg btn btn-primary'

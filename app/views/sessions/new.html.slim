@@ -1,0 +1,17 @@
+.nav.justify-content-enabled
+  =link_to 'ホーム', users_path, class: 'nav-link'
+
+.login_title
+  h1.text-center
+      |
+        login
+
+= form_with scope: :session, local: true do |f|
+  .session_new_form.form-group.mb-5
+    = f.label :name, '名前'
+    = f.text_field :name, class: 'form-control' , id: 'session_name'
+  .session_new_form.form-group.mt-4
+    = f.label :password, 'パスワード'
+    = f.text_field :password, class: 'form-control', id: 'session_password'
+  .text-center
+    = f.submit 'ログインする', class: 'session_button btn-lg btn btn-primary mt-4'

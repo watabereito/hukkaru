@@ -1,0 +1,16 @@
+h1 マイページ
+
+.nav.justify-content-enabled
+  =link_to 'ホーム', teams_path, class: 'nav-link'
+  =link_to '編集', 'users/profile_edit/:id', class: 'nav-link'
+table.table.table-hover
+ tbody
+  tr
+   th= User.human_attribute_name(:id)
+   td= @user.id
+  tr
+   th= User.human_attribute_name(:name)
+   td= @user.name
+  tr
+   th= User.human_attribute_name(:email)
+   td= @user.email

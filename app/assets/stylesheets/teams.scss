@@ -1,0 +1,342 @@
+// Place all the styles related to the teams controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.index_all{
+  border-bottom: solid 2px #DDDDDD;
+}
+.index_title{
+  height: 400px;
+}
+
+.profile{
+text-align: right;
+}
+
+.profile a{
+text-decoration:none;
+color: #33CC00;
+}
+
+.hukkaru_description_all{
+    border-bottom: solid 2px #DDDDDD;
+}
+.discription_title{
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.hukkaru_description_sub, .hukkaru_description_main{
+  display: flex;
+  justify-content: center;
+}
+
+.hukkaru_description_sub p,.hukkaru_description_main p{
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.hukkaru_description_main h3{
+  height: 200px;
+  width: 500px;
+  border: solid 1px #000000;
+  margin-right: 20px;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+
+.hukkaru_description_sub h3{
+  height: 200px;
+  width: 500px;
+  border: solid 1px #000000;
+  margin-right: 30px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+}
+
+.index_subtitle{
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.team_information_all{
+ margin-top: 70px;
+}
+/*ここまでがindex*/
+
+
+.team_title{
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+.team_sub{
+  margin-bottom: 80px;
+}
+.team_text{
+  border: solid 1px #CCCCCC;
+}
+.new_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  margin: 0px;
+}
+.new_form input{
+  margin: auto;
+}
+.new_form label{
+  margin: auto;
+  font-size: 20px;
+}
+
+
+.new_passion_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  padding-top: 50px;
+}
+.new_passion{
+  height: 50px;
+  margin: 0px;
+}
+.new_passion_form label{
+  margin: auto;
+  font-size: 20px;
+}
+.new_passion_form input{
+  margin: auto;
+}
+
+
+.new_enjoy_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  padding-top: 50px;
+}
+.new_enjoy{
+  height: 50px;
+  margin: 0px;
+}
+.new_enjoy_form label{
+  margin: auto;
+  font-size: 20px;
+}
+.new_enjoy_form input{
+  margin: auto;
+}
+.form-group select{
+  margin: 1px 220px 1px 280px;
+  width: 120px
+}
+
+
+.form_message{
+  border-bottom: solid 1px #CCCCCC;
+  height: 340px;
+}
+.form_message label{
+  margin: auto;
+  font-size: 20px;
+}
+.team_new_message{
+  width: 500px;
+  height: 130px;
+  border: solid 1px #CCCCCC;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin: auto;
+}
+
+
+.team_new_button{
+  height: 200px;
+  margin: 40px 280px 0px 280px;
+}
+.new_button{
+  width: 200px;
+  height: 80px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+}
+.new_button:active{
+  top: 4px;
+  text-shadow: none;
+}
+
+.field_with_errors{
+  display: contents;
+  input, textarea{
+    border: solid 2px #FF0000;
+  }
+}
+.form_errors ul{
+  background-color: #FF0000;
+  background: rgba(255,255,0, 0.2);
+  letter-spacing: 1px;
+  list-style: none;
+  padding: 0px;
+}
+.form_errors li{
+  margin-bottom: 7px;
+  color: #FF0000;
+}
+
+.team_description p{
+  width: 750px;
+  border: dashed 1px #3366FF;
+  margin: auto;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.team_description{
+  height: 300px;
+}
+/*ここまでがteams/new*/
+.my_team{
+  font-size: 34px;
+  margin-left: 80px;
+  margin-top: 30px;
+  color: #32CD32;
+  letter-spacing: 2px;
+}
+.team_message{
+  max-width: 1000px;
+  height: 130px;
+  border: dashed 2px #000000;
+  font-size: 25px;
+  letter-spacing: 2px;
+  margin-left: 80px;
+}
+.edit_btn{
+  padding-bottom: 90px;
+}
+.team_name{
+  letter-spacing: 2px;
+  margin-bottom: 270px;
+  margin-top: 30px;
+  color: #FF8C00;
+}
+/*ここまでがteams/show*/
+/*ここからがteams/edit*/
+
+.team_edit_all{
+height: 2000px;
+}
+.team_title{
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+.edit_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  margin: 0px;
+}
+.edit_form input{
+  margin: auto;
+}
+.edit_form label{
+  margin: auto;
+  font-size: 15px;
+}
+
+
+.edit_passion_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  padding-top: 50px;
+}
+.edit_passion{
+  height: 50px;
+  margin: 0px;
+}
+.edit_passion_form label{
+  margin: auto;
+  font-size: 15px;
+}
+.edit_passion_form input{
+  margin: auto;
+}
+
+
+.edit_enjoy_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  padding-top: 50px;
+}
+.edit_enjoy{
+  height: 50px;
+  margin: 0px;
+}
+.edit_enjoy_form label{
+  margin: auto;
+  font-size: 15px;
+}
+.edit_enjoy_form input{
+  margin: auto;
+}
+
+
+.form_edit_message{
+  border-bottom: solid 1px #CCCCCC;
+  height: 340px;
+}
+.edit_message label{
+  margin: auto;
+  font-size: 20px;
+}
+.team_edit_message{
+  width: 500px;
+  height: 130px;
+  border: solid 1px #CCCCCC;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin: 30px auto;
+}
+
+
+.team_edit_button{
+  height: 200px;
+  margin: 40px 280px 0px 280px;
+}
+.edit_button{
+  width: 200px;
+  height: 80px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+}
+.edit_button:active{
+  top: 4px;
+  text-shadow: none;
+}
+
+.field_with_errors{
+  display: contents;
+  input, textarea{
+    border: solid 2px #FF0000;
+  }
+}
+.form_errors ul{
+  background-color: #FF0000;
+  background: rgba(255,255,0, 0.2);
+  letter-spacing: 1px;
+  list-style: none;
+  padding: 0px;
+}
+.form_errors li{
+  margin-bottom: 7px;
+  color: #FF0000;
+}
+
+.team_edit_description p{
+  width: 750px;
+  border: dashed 1px #3366FF;
+  margin: auto;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.team_edti_description{
+  height: 300px;
+}

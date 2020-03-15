@@ -1,0 +1,65 @@
+.nav.justify-content-start
+  =link_to 'ホーム', teams_path, class: 'nav-link'
+
+.text-center
+  .team_title
+    h1　マイチーム作成！
+
+.text-center.team_sub
+  p
+    | マイチームを作って
+    br
+    | 自分と一緒にフットサルを一緒にやってくれる人を募集しよう！
+
+.form_errors.text-center
+  - if @team.errors.present?
+    ul#error_explanation
+      - @team.errors.full_messages.each do |message|
+          li= message
+
+= form_with model: @team, local: true do |f|
+
+  .new_form.form-group.row
+    = f.label :name, 'チーム名' ,class: 'col-sm-4 text-center'
+    = f.text_field :name, class: 'team_text form-control' , id: 'team_name'
+
+  .new_form.form-group.row
+    = f.label :member, 'チームメンバー',class: 'col-sm-4 text-center'
+    = f.text_field :member, class: 'team_text form-control' , id: 'team_member'
+
+  .new_form.form-group.row
+    = f.label :age, 'チーム平均年齢', class: 'col-sm-4 text-center'
+    = f.text_field :age, class: 'team_text form-control' , id: 'team_age'
+
+  .new_enjoy_form
+    .new_passion.form-group.row
+      = f.label :passion, '本気レベル', class: 'mr-5', class: 'col-sm-4 text-center'
+      = f.select :passion, [['レベル1' , 'レベル1'], ['レベル2' , 'レベル2'], ['レベル3' , 'レベル3'],['レベル4' , 'レベル4'],['レベル5' , 'レベル5']]
+
+  .new_passion_form
+    .new_enjoy.form-group.row
+      = f.label :enjoy, 'エンジョイレベル', class: 'mr-5', class: 'col-sm-4 text-center'
+      = f.select :enjoy, [['レベル1' , 'レベル1'], ['レベル2' , 'レベル2'], ['レベル3' , 'レベル3'],['レベル4' , 'レベル4'],['レベル5' , 'レベル5']]
+
+  .new_form.form-group.row
+    = f.label :Performance, '試合実績', class: 'col-sm-4 text-center'
+    = f.text_field :Performance, class: 'team_text form-control' , id: 'team_Performance'
+
+  .new_form.form-group.row
+    = f.label :discription, '主な活動地域を入力してください', class: 'col-sm-4 text-center'
+    = f.text_field :discription, rows: 5, class: 'team_text form-control', id: 'team_discription'
+
+  .form_message.form-group.row
+    = f.label :message, 'チームから一言',class: 'col-sm-4 text-center'
+    = f.text_area :message, rows: 5, class: 'team_new_message form-control', id: 'team_message'
+
+  .team_new_button.text-center
+    = f.submit 'チーム作成', class: 'new_button btn-lg btn btn-primary'
+
+.text-center.team_description
+  p
+    | チーム詳細画面からプロフィールの情報は確認できます！
+    br
+    | 応募者一覧画面を確認してチームに入団希望者がいない確認してみましょう！
+    br
+    |これから他のチームと交流してより良いチームを目指してください！

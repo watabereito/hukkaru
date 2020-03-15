@@ -2,11 +2,30 @@ doctype html
 html
   head
     title
-      | Tasklef
+      | hukkaru
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'recruits', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'sessions', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'teams', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    .app-title.navbar.navbar-expand-md.navbar-light
+       .title-main
+         = link_to 'フッかる', teams_path, class: 'home nav-link'
 
-    = yield
+       .ul.navbar-nav
+         - if current_user
+           li.nav-item= link_to 'チーム作成', new_team_path, class: 'home nav-link text-white btn-lg btn btn-info'
+           li.nav-item= link_to '募集チーム情報', recruits_path, class: 'recruit_btn nav-link text-white btn-lg btn btn-info ml-3'
+           li.nav-item= link_to 'マイページ', users_profile_show_path, class: 'recruit_btn nav-link text-white btn-lg btn btn-info ml-3'
+           li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'logout_btn nav-link btn-lg btn-danger text-white'
+         - else
+          li.nav-item= link_to '新規登録', new_user_path, class: 'register-btn btn-lg btn btn-warning text-white mr-3'
+          li.nav-item= link_to 'ログイン', login_path, class: 'btn-lg btn btn-success text-white'
+    .container
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+      = yield

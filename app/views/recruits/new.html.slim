@@ -1,0 +1,40 @@
+.nav.justify-content-start
+  =link_to 'ホーム', teams_path, class: 'nav-link'
+
+.text-center
+  .team_title
+    h1　マイチーム作成！
+
+.text-center.team_sub
+  p
+    | マイチームを作って
+    br
+    | 自分と一緒にフットサルを一緒にやってくれる人を募集しよう！
+
+
+.form_errors.text-center
+  - if @recruit.errors.present?
+    ul#error_explanation
+      - @recruit.errors.full_messages.each do |message|
+          li= message
+
+= form_with model: @recruit, local: true do |f|
+
+  .new_form.form-group.row
+    = f.label :title, '募集概要' ,class: 'col-sm-4 text-center'
+    = f.text_field :title, class: 'team_text form-control' , id: 'recruit_title'
+
+  .new_form.form-group.row
+    = f.label :team_id, 'チームID',class: 'col-sm-4 text-center'
+    = f.text_field :team_id, class: 'team_text form-control' , id: 'recruit_team_id'
+
+  .new_form.form-group.row
+    = f.label :Capacity, '募集人数', class: 'col-sm-4 text-center'
+    = f.text_field :Capacity, class: 'team_text form-control' , id: 'recruit_Capacity'
+
+  .form_message.form-group.row
+    = f.label :body, 'チームから一言',class: 'col-sm-4 text-center'
+    = f.text_area :body, rows: 5, class: 'team_new_message form-control', id: 'recruit_body'
+
+  .recruit_new_button.text-center
+    = f.submit 'チーム作成', class: 'new_button btn-lg btn btn-primary'

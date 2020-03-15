@@ -1,0 +1,92 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.index_tiltle h1{
+  font-size: 70px;
+}
+/*ここまでindexのcss*/
+
+.new_title h1{
+  font-size: 50px;
+  margin-top: 30px;
+  font-family: Courier;
+}
+input[type="text"]{
+        width: 500px;
+        height: 40px;
+        outline:0;
+}
+.user_new_form input{
+  margin: auto;
+}
+.user_new_form label{
+  margin-left: 305px;
+  margin-top: 30px;
+}
+.sign_upbutton{
+  margin-left: 400px;
+  margin-top: 30px;
+}
+.field_with_errors{
+  display: contents;
+  input, textarea{
+    border: solid 2px #FF0000;
+  }
+}
+/*ここからがprofile.htmlになる*/
+.profile_edit_title{
+  margin: 40px 0px 70px 0px;
+  border-bottom: solid 1px #000000;
+}
+.profile_id, .profile_name, .profile_email{
+  height: 150px;
+  display: flex;
+  border-bottom: 1px solid #CCCCCC;
+}
+.profile_label{
+  width: 450px;
+  margin : auto;
+  text-align: center;
+}
+.profile_label h3{
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+.profile_text{
+  width: 600px;
+  margin: auto;
+  text-align: center;
+}
+.profile_text p{
+  height: 36px;
+  margin-bottom: 0px;
+  margin-left: 50px;
+  margin-right:50px;
+  border: solid 1px #CCCCCC;
+  padding-top: 5px;
+}
+
+.profile_sex{
+  width: 500px;
+  margin: auto;
+}
+.profile_sex_male{
+  margin-bottom: 10px;
+}
+.profile_button{
+  height: 200px;
+  margin: 40px 250px 0px 250px;
+}
+.profile_new_button{
+  width: 300px;
+  height: 80px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+}
+
+.profile_new_button:active{
+  top: 4px;
+  text-shadow: none;
+}

@@ -1,0 +1,88 @@
+
+         .index_all
+           .index_title
+             h1.text-center.mt-5.mb-5
+                 |
+                    フッかる！
+
+
+           .text-center.index_subtitle
+             p
+               | 自分で作ったチームで仲間たちとフットサルませんか？
+
+           .text-center.index_subtitle
+             p
+               | 試合相手の検索、試合交渉やチームの作成
+               br
+               | 近くのチームへの入団を簡単にできるサービスです！
+
+
+         .hukkaru_description_all
+           .discription_title.text-center
+             h2 できること
+
+
+           .hukkaru_description_main.text-center
+             h3
+               チームに入団する
+                 .text-center.team_sub
+                   p
+                     |ユーザー登録して自分が活動した地域を入力すると
+                     br
+                     | その地域付近で活動しているチームが出てきたら希望の
+                     br
+                     | チームに応募しチームから入団が許可されればチーム
+                     br
+                     |の一員として活動することができるようになります！
+
+
+           .hukkaru_description_sub.text-center
+             h3
+               マイチームを作る
+                 .text-center
+                   p
+                     | チーム名や活動場所、チームのプロフィールを登録
+                     br
+                     | して後は一緒にったかってくれる仲間を募集するだけ！
+                     br
+                     | 1チーム月額500円で自分のチームを作ることができます！
+
+
+             h3
+               試合相手を見つけるつける
+                 .text-center.team_sub
+                   p
+                     |活動している地域付近で活動しているチームと
+                     br
+                     | マッチングすることができ、チーム通しで交渉
+                     br
+                     |していただき試合することができます！
+
+
+         .team_information_all
+
+           .text-center.team_information_all.mb-5
+             h2
+               | チーム一覧
+
+           table.table.table-hover
+            thead.thead-default
+             tr
+               th= Team.human_attribute_name(:name)
+               th= Team.human_attribute_name(:discription)
+               th= Team.human_attribute_name(:age)
+               th= Team.human_attribute_name(:passion)
+               th= Team.human_attribute_name(:enjoy)
+               th= Team.human_attribute_name(:Performance)
+               th= Team.human_attribute_name(:message)
+               th
+            tbody
+              - @teams.each do |team|
+                 tr
+                   td= link_to team.name, team
+                   td= team.discription
+                   td= team.age
+                   td= team.passion
+                   td= team.enjoy
+                   td= team.Performance
+                   td= team.message
