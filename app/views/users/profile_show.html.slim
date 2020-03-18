@@ -3,7 +3,6 @@ h1 マイページ
 .nav.justify-content-enabled
   =link_to 'ホーム', teams_path, class: 'nav-link'
   =link_to '編集', '/users/profile_edit', class: 'nav-link'
-  =link_to '募集してみよう', '/recruits/new', class: 'nav-link'
 table.table.table-hover
  tbody
   tr
@@ -25,7 +24,30 @@ table.table.table-hover
    th= User.human_attribute_name(:Birthday)
    td= @profile.Birthday
 
-.listings
-  .listings_channels
-    ul , class: channel_list
-      = link_to('user一覧', '/recruits/new') %>
+.team_information_all
+
+  .text-center.team_information_all.mb-5
+    h2
+      | チーム一覧
+
+  table.table.table-hover
+   thead.thead-default
+     tr
+       th= Team.human_attribute_name(:name)
+       th= Team.human_attribute_name(:discription)
+       th= Team.human_attribute_name(:age)
+       th= Team.human_attribute_name(:passion)
+       th= Team.human_attribute_name(:enjoy)
+       th= Team.human_attribute_name(:Performance)
+       th= Team.human_attribute_name(:message)
+       th
+   tbody
+     - @teams.each do |team|
+       tr
+         td= link_to team.name, management_show_team_path(team.id)
+         td= team.discription
+         td= team.age
+         td= team.passion
+         td= team.enjoy
+         td= team.Performance
+         td= team.message

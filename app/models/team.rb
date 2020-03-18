@@ -4,5 +4,6 @@ class Team < ApplicationRecord
   validates :discription, presence: true
   validates :message, presence: true
 
+  has_many :recruits
   belongs_to :user
 end

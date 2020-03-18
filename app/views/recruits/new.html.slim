@@ -3,7 +3,7 @@
 
 .text-center
   .team_title
-    h1　マイチーム作成！
+    h1　募集内容作成！
 
 .text-center.team_sub
   p
@@ -23,10 +23,6 @@
   .new_form.form-group.row
     = f.label :title, '募集概要' ,class: 'col-sm-4 text-center'
     = f.text_field :title, class: 'team_text form-control' , id: 'recruit_title'
-
-  .new_form.form-group.row
-    = f.label :team_id, 'チームID',class: 'col-sm-4 text-center'
-    = f.text_field :team_id, class: 'team_text form-control' , id: 'recruit_team_id'
 
   .new_form.form-group.row
     = f.label :Capacity, '募集人数', class: 'col-sm-4 text-center'

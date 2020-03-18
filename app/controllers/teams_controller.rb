@@ -1,56 +1,63 @@
 class TeamsController < ApplicationController
   skip_before_action :login_required, only: [:index,:show]
-    def index
+  def index
     @teams = Team.all
+    @users = User.all
   end
 
   def list
-  @teams = Team.all
-end
+    @teams = Team.all
+  end
 
 
   def new
     @team = Team.new
-end
-
-def create
-  @team = Team.new(team_params.merge(user_id: current_user.id))
-
-  if @team.save
-  redirect_to team_url(@team), notice: "タスク「#{@team.name}」を登録しました。"
-  else
-    render :new
   end
-end
 
-def show
-  @team = Team.find(params[:id])
-end
+  def create
+    @team = Team.new(team_params.merge(user_id: current_user.id))
 
-def edit
-  @team = current_user.team.find(params[:id])
-end
+    if @team.save
+      redirect_to team_url(@team), notice: "タスク「#{@team.name}」を登録しました。"
+    else
+      render :new
+    end
+  end
 
-def update
-  team = Team.find(params[:id])
-  team.update!(team_params)
-  redirect_to teams_url, notice: "タスク「#{team.name}」を更新しました。"
-end
+  def management_show
+    @teams = Team.all
+    @team = Team.find(params[:id])
+  end
 
-def destroy
-  team = Team.find(params[:id])
-  team.destroy
-  redirect_to teams_url, notice: "タスク「#{team.name}」を削除しました。"
-end
+  def show
+    @team = Team.find(params[:id])
+  end
+
+  def edit
+    @teams = Team.all
+    @team = Team.find(params[:id])
+  end
+
+  def update
+    team = Team.find(params[:id])
+    team.update!(team_params)
+    redirect_to teams_url, notice: "タスク「#{team.name}」を更新しました。"
+  end
+
+  def destroy
+    team = Team.find(params[:id])
+    team.destroy
+    redirect_to teams_url, notice: "タスク「#{team.name}」を削除しました。"
+  end
 
 
-private
+  private
 
 
-def team_params
-  params.require(:team).permit(:name, :discription, :age, :message, :passion, :Performance, :enjoy)
-end
-def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation)
-end
+  def team_params
+    params.require(:team).permit(:id, :name, :discription, :age, :message, :passion, :Performance, :enjoy)
+  end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end

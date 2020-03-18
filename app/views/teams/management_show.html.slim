@@ -1,0 +1,29 @@
+h1 マイチーム管理
+=link_to '募集してみよう', recruit_path(@team.id), class: 'nav-link'
+=link_to 'このチームの募集掲示板', '/recruits/my_team_index', class: 'nav-link'
+table.table.table-hover
+ tbody
+  tr
+   th= User.human_attribute_name(:name)
+   td= @team.name
+  tr
+   th= User.human_attribute_name(:age)
+   td= @team.age
+  tr
+   th= User.human_attribute_name(:discription)
+   td= @team.discription
+  tr
+   th= User.human_attribute_name(:passion)
+   td= @team.passion
+  tr
+   th= User.human_attribute_name(:enjoy)
+   td= @team.enjoy
+  tr
+    th= User.human_attribute_name(:Performance)
+    td= @team.Performance
+  tr
+    th= User.human_attribute_name(:message)
+    td= @team.message
+
+.nav.justify-content-center.edit_btn
+  = link_to '編集する', edit_team_path, class: 'btn-lg btn btn-primary mt-5 w-25'

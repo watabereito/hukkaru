@@ -21,9 +21,9 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_url(), notice: 'ログアウトしました'
   end
-private
+  private
 
-def session_params
-  params.require(:session).permit(:name, :password)
-end
+  def session_params
+    params.require(:session).permit(:name, :password)
+  end
 end
