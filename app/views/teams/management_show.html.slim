@@ -1,29 +1,50 @@
 h1 マイチーム管理
-=link_to '募集してみよう', recruit_path(@team.id), class: 'nav-link'
-=link_to 'このチームの募集掲示板', '/recruits/my_team_index', class: 'nav-link'
-table.table.table-hover
- tbody
-  tr
-   th= User.human_attribute_name(:name)
-   td= @team.name
-  tr
-   th= User.human_attribute_name(:age)
-   td= @team.age
-  tr
-   th= User.human_attribute_name(:discription)
-   td= @team.discription
-  tr
-   th= User.human_attribute_name(:passion)
-   td= @team.passion
-  tr
-   th= User.human_attribute_name(:enjoy)
-   td= @team.enjoy
-  tr
-    th= User.human_attribute_name(:Performance)
-    td= @team.Performance
-  tr
-    th= User.human_attribute_name(:message)
-    td= @team.message
+=link_to 'このチームの募集掲示板', my_team_index_recruit_path(@team), class: 'nav-link'
+.team_name.text-center
+  h1
+    strong Team　Name　『　　
+    = @team.name
+    | 　　』
+
+.team_photo
+
+.my_team
+  p
+    strong 平均年齢 :　
+    = @team.age
+    |歳
+.my_team
+  p
+    strong 活動場所 :　
+    = @team.discription
+    |
+.my_team
+  p
+    strong 本気レベル :　
+    = @team.passion
+    |
+.my_team
+  p
+    strong エンジョイレベル :　
+    = @team.enjoy
+    |
+.my_team
+  p
+    strong チーム実績 :　
+    = @team.Performance
+    |
+.my_team
+  p
+    strong チームから一言
+.team_message.mb-5
+  .ml-5
+    p
+      = @team.message
+
+
+=link_to '応募者一覧', user_teams_recruit_member_team_path(@team.id),class: 'profile_team_show_table'
+=link_to 'メンバー一覧', user_teams_member_team_path,class: 'profile_team_show_table'
 
 .nav.justify-content-center.edit_btn
-  = link_to '編集する', edit_team_path, class: 'btn-lg btn btn-primary mt-5 w-25'
+  = link_to '編集する', edit_team_path, class: 'btn-lg btn btn-success mt-5'
+  = link_to '削除する', @team, method: :delete, data: { confirm: "タスク「#{@team.name}」を削除します。よろしいですか？" }, class: 'btn-lg btn btn-danger mt-5 ml-4'

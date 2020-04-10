@@ -7,6 +7,19 @@
     = @team.name
     | 　　』
 
+.team_photo
+  - if @team.photo.presence
+    = image_tag @team.photo.url
+  - else
+    .photo_none.text-center
+      h1 画像は登録されていません
+      = fa_icon "image"
+
+.my_team
+  p
+    strong このチームのメンバー数 :　
+    = @team.member
+    |人
 .my_team
   p
     strong 平均年齢 :　
@@ -35,10 +48,14 @@
 .my_team
   p
     strong チームから一言
-.team_message
+.team_message.mb-5
   .ml-5
     p
       = @team.message
 
-.nav.justify-content-center.edit_btn
-  = link_to '編集する', edit_team_path, class: 'btn-lg btn btn-primary mt-5 w-25'
+
+- if current_user
+  = form_with(model: [@team,@user_team], local: true) do |f|
+    = button_tag type: "submit",data: { confirm: "チーム「#{@team.name}」に応募します。よろしいですか？" } , class: "comment_btn btn btn-success float-right mt-1"
+      = fa_icon("comment 2x")
+      p 応募する

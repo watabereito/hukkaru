@@ -18,6 +18,10 @@
           li= message
 
 = form_with model: @team, local: true do |f|
+  .new_photo_form
+    .new_photo.form-group.row
+      = f.label :photo,'チーム画像'
+      = f.file_field :photo, id: 'team_photo'
 
   .new_form.form-group.row
     = f.label :name, 'チーム名' ,class: 'col-sm-4 text-center'
@@ -54,7 +58,7 @@
     = f.text_area :message, rows: 5, class: 'team_new_message form-control', id: 'team_message'
 
   .team_new_button.text-center
-    = f.submit 'チーム編成', class: 'new_button btn-lg btn btn-primary'
+    = f.submit 'チーム編成', class: 'new_button btn-lg btn btn-success'
 
 .text-center.team_description
   p

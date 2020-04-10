@@ -9,23 +9,42 @@
     h2
       | 募集内容確認
 
-table.table.table-hover
-  tbody
-  tr
-    th= Recruit.human_attribute_name(:id)
-    td= @recruit.id
-  tr
-    th= Recruit.human_attribute_name(:title)
-    td= @recruit.title
-  tr
-    th= Recruit.human_attribute_name(:team_id)
-    td= @recruit.team_id
-  tr
-    th= Recruit.human_attribute_name(:Capacity)
-    td= @recruit.Capacity
-  tr
-    th= Recruit.human_attribute_name(:body)
-    td= @recruit.body
-  tr
-    th= Recruit.human_attribute_name(:created_at)
-    td= @recruit.created_at
+.recruit_show_table
+  table.table.table-hover
+   tbody
+    tr
+     th= Recruit.human_attribute_name(:title)
+     td= @recruit.title
+    tr
+     th= Recruit.human_attribute_name(:team_id)
+     td= @recruit.team_id
+    tr
+     th= Recruit.human_attribute_name(:Capacity)
+     td= @recruit.Capacity
+
+    tr
+     th= Recruit.human_attribute_name(:body)
+     td= @recruit.body
+
+    tr
+     th= Recruit.human_attribute_name(:created_at)
+     td= @recruit.created_at
+
+
+.comment-wrapper.mb-10
+  .mt-5.comment_title
+    p コメント一覧
+    .comments_all
+      - @recruit_comments.each do |c|
+        - unless c.user.blank?
+          table.table.table-hover
+           tbody
+            tr
+             th= link_to c.user.name, user_path(@users)
+             td= c.body
+  - if current_user
+    = form_with(model: [@recruit, @recruit_comment], local: true) do |f|
+      = f.text_area :body, class: "form-control", rows: 5
+      = button_tag type: "submit", class: "comment_btn btn btn-success float-right mt-1"
+        = fa_icon("comment 2x")
+        p コメントする

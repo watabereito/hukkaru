@@ -3,22 +3,20 @@
   .text-center.team_information_all.mb-5
     h2
       | 募集情報一覧
-
-  table.table.table-hover
-   thead.thead-default
-    tr
-      th= Recruit.human_attribute_name(:id)
-      th= Recruit.human_attribute_name(:title)
-      th= Recruit.human_attribute_name(:team_id)
-      th= Recruit.human_attribute_name(:Capacity)
-      th= Recruit.human_attribute_name(:body)
-      th
-   tbody
-    - @recruits.each do |recruit|
+  .recruit_index_table
+    table.table.table-hover
+      thead.thead-default
        tr
-         td= recruit.id
-         td= link_to recruit.title, recruit
-         td= recruit.team_id
-         td= recruit.Capacity
-         td= recruit.body
-         td= recruit.created_at
+        th= Recruit.human_attribute_name(:title)
+        th= Recruit.human_attribute_name(:team_name)
+        th= Recruit.human_attribute_name(:Capacity)
+        th= Recruit.human_attribute_name(:body)
+        th= Recruit.human_attribute_name(:created_at)
+      tbody
+        - @recruits.each do |recruit|
+         tr
+          td= link_to recruit.title, recruit
+          td= recruit.team_id
+          td= recruit.Capacity
+          td= recruit.body
+          td= recruit.created_at

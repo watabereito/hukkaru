@@ -1,0 +1,44 @@
+.text-center.search_all
+  p チーム名検索
+  = form_tag teams_search_path, :method => 'get' do
+    p
+      .search_new_form
+        = text_field_tag :search, params[:search], class: 'mr-2'
+        = submit_tag "検索", :name => nil ,class: 'search_btn btn btn-success'
+
+.search_title
+  .index_search_title.text-center
+    h1.mt-5.mb-5
+        |
+           自分にあったチームを探して一緒に戦おう
+
+
+.team_information_all
+
+  .text-center.team_information_all.mb-5
+    h2
+      | チーム一覧
+
+.profile_team_show_all
+  .container
+    .row
+      - @teams.each do |team|
+        =link_to(team_path(team.id),class: 'profile_team_show_table')
+          h5 = team.name
+          .user_team_photo
+            - if team.photo.presence
+              = image_tag team.photo.url
+            - else
+              .photo_none_sub.text-center
+                p 画像は登録されていません
+                = fa_icon ("image 4x")
+            table.table
+              tbody
+               tr
+                th= Team.human_attribute_name(:id)
+                td= fa_icon("caret-right 2x")
+                td= team.id
+               tr
+                th= Team.human_attribute_name(:discription)
+                td= fa_icon("caret-right 2x")
+                td= team.discription

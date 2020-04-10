@@ -11,14 +11,13 @@
       th= Recruit.human_attribute_name(:title)
       th= Recruit.human_attribute_name(:team_id)
       th= Recruit.human_attribute_name(:Capacity)
-      th= Recruit.human_attribute_name(:body)
-      th
+      th= Recruit.human_attribute_name(:created_at)
    tbody
     - @recruit.each do |recruit|
-       tr
+      =link_to (my_team_show_recruit_path(recruit.id))
+        tr
          td= recruit.id
-         td= link_to recruit.title, recruit
+         td= link_to recruit.title, my_team_show_recruit_path(recruit.id)
          td= recruit.team_id
          td= recruit.Capacity
-         td= recruit.body
          td= recruit.created_at

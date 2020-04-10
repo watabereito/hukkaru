@@ -1,53 +1,124 @@
-h1 マイページ
+doctype html
+html
+  head
+    title
+      | hukkaru
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'recruits', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .app-title.navbar.navbar-expand-md.navbar-light
+       .title-main
+         = link_to 'フッかる', teams_path, class: 'nav-link'
 
-.nav.justify-content-enabled
-  =link_to 'ホーム', teams_path, class: 'nav-link'
-  =link_to '編集', '/users/profile_edit', class: 'nav-link'
-table.table.table-hover
- tbody
-  tr
-   th= User.human_attribute_name(:id)
-   td= @profile.id
-  tr
-   th= User.human_attribute_name(:name)
-   td= @profile.name
-  tr
-   th= User.human_attribute_name(:email)
-   td= @profile.email
-  tr
-   th= User.human_attribute_name(:live)
-   td= @profile.live
-  tr
-   th= User.human_attribute_name(:sex)
-   td= @profile.sex
-  tr
-   th= User.human_attribute_name(:Birthday)
-   td= @profile.Birthday
+       .ul.navbar-nav
+         - if current_user
+           li.nav-item= link_to 'チーム作成', new_team_path, class: 'home nav-link text-white btn-lg btn btn-success'
+           li.nav-item= link_to 'チーム検索', teams_search_path, class: 'home nav-link text-white btn-lg btn btn-success ml-3'
+           li.nav-item= link_to '募集掲示板一覧', recruits_path, class: 'recruit_btn nav-link text-white btn-lg btn btn-success ml-3'
+           li.nav-item= link_to 'マイページ', users_profile_show_path, class: 'recruit_btn nav-link text-white btn-lg btn btn-success ml-3'
+           li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'logout_btn nav-link btn-lg btn-danger text-white'
+         - else
+          li.nav-item= link_to '新規登録', new_user_path, class: 'register-btn btn-lg btn btn-success text-white mr-3'
+          li.nav-item= link_to 'ログイン', login_path, class: 'btn-lg btn btn-success text-white'
+    .container
+      .my_profile_title.mb-5.mt-4
+        h1 マイページ
 
-.team_information_all
+      .nav.justify-content-center'
+        .profile_show_table_all
+          .profile_show_table
+            table.table.table-hover
+             tbody
+              tr
+               th= 'ユーザーID'
+               td= @profile.id
+              tr
+               th= User.human_attribute_name(:name)
+               td= @profile.name
+              tr
+               th= User.human_attribute_name(:email)
+               td= @profile.email
+              tr
+               th= User.human_attribute_name(:live)
+               td= @profile.live
+              tr
+               th= User.human_attribute_name(:sex)
+               td= @profile.sex
+              tr
+               th= User.human_attribute_name(:Birthday)
+               td= @profile.Birthday
+          .nav.justify-content-center
+            = link_to 'プロフィール編集', '/users/profile_edit', class: 'btn-lg btn btn-success mt-2 w-25'
 
-  .text-center.team_information_all.mb-5
-    h2
-      | チーム一覧
+      .text-center.team_information_all.mb-5
+        h2
+          | マイチーム一覧
 
-  table.table.table-hover
-   thead.thead-default
-     tr
-       th= Team.human_attribute_name(:name)
-       th= Team.human_attribute_name(:discription)
-       th= Team.human_attribute_name(:age)
-       th= Team.human_attribute_name(:passion)
-       th= Team.human_attribute_name(:enjoy)
-       th= Team.human_attribute_name(:Performance)
-       th= Team.human_attribute_name(:message)
-       th
-   tbody
-     - @teams.each do |team|
-       tr
-         td= link_to team.name, management_show_team_path(team.id)
-         td= team.discription
-         td= team.age
-         td= team.passion
-         td= team.enjoy
-         td= team.Performance
-         td= team.message
+      .profile_team_show_all
+        .container
+          .row
+            - @teams.each do |team|
+              =link_to(management_show_team_path(team.id),class: 'profile_team_show_table')
+                h5 = team.name
+                .user_team_photo
+                  - if team.photo.presence
+                    = image_tag team.photo.url
+                  - else
+                    .photo_none_sub.text-center
+                      p 画像は登録されていません
+                      = fa_icon ("image 4x")
+                  table.table
+                    tbody
+                     tr
+                      th= Team.human_attribute_name(:id)
+                      td= fa_icon("caret-right 2x")
+                      td= team.id
+                     tr
+                      th= Team.human_attribute_name(:discription)
+                      td= fa_icon("caret-right 2x")
+                      td= team.discription
+  .recruits_description
+    .nav.justify-content-center.edit_btn
+      = link_to '募集掲示板を作ってみよう！', new_recruit_path, class: 'btn-lg btn btn-success mt-5 w-25'
+
+    .hukkaru_recruit_main.text-center
+      h3
+        募集掲示板を作成しよう
+          .text-center.recruit_new_sub
+            p
+              = link_to '募集掲示板を作ってみよう', new_recruit_path
+              |から募集掲示板を作成して仲間
+              br
+              | を募集しよう！そのチームで作った募集掲示板は募集掲示
+              br
+              | 一覧から見れるようになります。内容を変えたい場合は
+              br
+              | 掲示板を作成したチームの詳細ページから編集できます！
+
+
+    .hukkaru_recruit_sub.text-center
+      h3
+        他のチームの募集掲示板を確認しよう
+          .text-center
+            p
+              | チームに参加したい場合は募集掲示板を利用しよう！
+              br
+              = link_to '募集掲示板一覧', recruits_path
+              | から募集しているチームから自分にあった
+              br
+              | 募集をしているチームを探してコメントしてみよう！
+
+
+      h3
+        掲示板にコメントしよう
+          .text-center.team_sub
+            p
+              |気になる募集を見つけたときはその募集に対してコメント
+              br
+              | をしてみましょう！チームについての質問やチームの参加
+              br
+              |願いなどわからないことがあればコメントしよう！

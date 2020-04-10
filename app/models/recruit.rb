@@ -3,5 +3,5 @@ class Recruit < ApplicationRecord
   validates :Capacity, presence: true
   validates :body, presence: true
 
-  belongs_to :team
+  has_many :recruit_comments
 end

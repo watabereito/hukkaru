@@ -18,25 +18,37 @@
           li= message
 
 = form_with model: @team, local: true do |f|
+  .new_photo_form
+    .new_photo.form-group.row
+      = f.label :photo,'チーム画像'
+      = f.file_field :photo, id: 'team_photo'
+      = image_tag @team.photo.url if @team.photo?
+
 
   .new_form.form-group.row
     = f.label :name, 'チーム名' ,class: 'col-sm-4 text-center'
     = f.text_field :name, class: 'team_text form-control' , id: 'team_name'
 
-  .new_form.form-group.row
+  .new_age_form.form-group.row
     = f.label :member, 'チームメンバー',class: 'col-sm-4 text-center'
     = f.text_field :member, class: 'team_text form-control' , id: 'team_member'
 
-  .new_form.form-group.row
+  .new_age_form.form-group.row
     = f.label :age, 'チーム平均年齢', class: 'col-sm-4 text-center'
     = f.text_field :age, class: 'team_text form-control' , id: 'team_age'
 
-  .new_enjoy_form
+  .new_passion_form
+    .new_passion.form-group.row
+      = f.label :discription, 'チームの活動地域', class: 'mr-5', class: 'col-sm-4 text-center'
+      = f.select :discription, [['北海道'], ['青森'], ['岩手'],['宮城'],['秋田'],['山形'], ['福島'],['茨城'],['栃木'],['群馬'],['埼玉'],['千葉'],['東京'],['神奈川'],['新潟'],['富山'],['石川'],['福井'],['山梨'],['長野'],['岐阜'],['静岡'],['愛知'],['三重'],['滋賀'],['京都'],['大阪'],['兵庫'],['奈良'],['和歌山'],['鳥取'],['島根'],['岡山'],['広島'],['山口'],['徳島'],['香川'],['愛媛'],['高知'],['福岡'],['佐賀'],['長崎'],['熊本'],['大分'],['宮崎'],['鹿児島'],['沖縄']]
+
+
+  .new_passion_form
     .new_passion.form-group.row
       = f.label :passion, '本気レベル', class: 'mr-5', class: 'col-sm-4 text-center'
       = f.select :passion, [['レベル1' , 'レベル1'], ['レベル2' , 'レベル2'], ['レベル3' , 'レベル3'],['レベル4' , 'レベル4'],['レベル5' , 'レベル5']]
 
-  .new_passion_form
+  .new_enjoy_form
     .new_enjoy.form-group.row
       = f.label :enjoy, 'エンジョイレベル', class: 'mr-5', class: 'col-sm-4 text-center'
       = f.select :enjoy, [['レベル1' , 'レベル1'], ['レベル2' , 'レベル2'], ['レベル3' , 'レベル3'],['レベル4' , 'レベル4'],['レベル5' , 'レベル5']]
@@ -45,16 +57,12 @@
     = f.label :Performance, '試合実績', class: 'col-sm-4 text-center'
     = f.text_field :Performance, class: 'team_text form-control' , id: 'team_Performance'
 
-  .new_form.form-group.row
-    = f.label :discription, '主な活動地域を入力してください', class: 'col-sm-4 text-center'
-    = f.text_field :discription, rows: 5, class: 'team_text form-control', id: 'team_discription'
-
   .form_message.form-group.row
     = f.label :message, 'チームから一言',class: 'col-sm-4 text-center'
     = f.text_area :message, rows: 5, class: 'team_new_message form-control', id: 'team_message'
 
   .team_new_button.text-center
-    = f.submit 'チーム作成', class: 'new_button btn-lg btn btn-primary'
+    = f.submit 'チーム作成', class: 'new_button btn-lg btn btn-success'
 
 .text-center.team_description
   p

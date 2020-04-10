@@ -1,0 +1,20 @@
+.team_information_all
+
+  .text-center.team_information_all.mb-5
+    h2
+      | メンバー一覧
+  .recruit_index_table
+    table.table.table-hover
+      thead.thead-default
+       tr
+        th= UserTeam.human_attribute_name(:title)
+        th= UserTeam.human_attribute_name(:team_id)
+        th= UserTeam.human_attribute_name(:Capacity)
+        th= UserTeam.human_attribute_name(:body)
+        th= UserTeam.human_attribute_name(:created_at)
+      tbody
+        - @user_team.each do |u|
+          tr
+           td= u.user_id
+
+      

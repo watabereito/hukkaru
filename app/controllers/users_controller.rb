@@ -3,10 +3,13 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @teams = Team.all
+    render layout:false
   end
 
   def show
     @user = User.find(params[:id])
+    @profile = User.find(session[:user_id])
+    @team = @profile.teams
   end
 
 
@@ -21,7 +24,8 @@ class UsersController < ApplicationController
   def profile_show
     @teams = Team.all
     @profile = User.find(session[:user_id])
-    @teams = @profile.teams
+    @team = @profile.teams
+    render layout: false
   end
 
   def profile_edit

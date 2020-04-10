@@ -7,54 +7,29 @@
       h1　チームプロフィール変更
 
   .form_errors.text-center
-    - if @team.errors.present?
+    - if @recruit.errors.present?
       ul#error_explanation
-        - @team.errors.full_messages.each do |message|
+        - @recruit.errors.full_messages.each do |message|
             li= message
 
-  = form_with model: @team, local: true do |f|
+  = form_with model: @recruit, local: true do |f|
+    .new_form.form-group.row
+      = f.label :title, '募集概要' ,class: 'col-sm-4 text-center'
+      = f.text_field :title, class: 'team_text form-control' , id: 'recruit_title'
 
-    .edit_form.form-group.row
-      = f.label :name, 'チーム名' ,class: 'col-sm-4 text-center'
-      = f.text_field :name, class: 'team_text form-control' , id: 'team_name'
+    .new_form.form-group.row
+      = f.label :Capacity, '募集人数', class: 'col-sm-4 text-center'
+      = f.text_field :Capacity, class: 'team_text form-control' , id: 'recruit_Capacity'
 
-    .edit_form.form-group.row
-      = f.label :member, 'チームメンバー',class: 'col-sm-4 text-center'
-      = f.text_field :member, class: 'team_text form-control' , id: 'team_member'
+    .form_message.form-group.row
+      = f.label :body, 'チームから一言',class: 'col-sm-4 text-center'
+      = f.text_area :body, rows: 5, class: 'team_new_message form-control', id: 'recruit_body'
 
-    .edit_form.form-group.row
-      = f.label :age, 'チーム平均年齢', class: 'col-sm-4 text-center'
-      = f.text_field :age, class: 'team_text form-control' , id: 'team_age'
+    .new_recruit_form
+      .new_recruit.form-group.row
+        = f.label :team_name, '募集したいチーム名', class: 'mr-5', class: 'col-sm-4 text-center'
+        = f.collection_select :team_id, Team.all, :id , :name, :prompt => true
 
-    .edit_passion_form
-      .edit_passion.form-group.row
-        = f.label :passion, '本気レベル', class: 'mr-5', class: 'col-sm-4 text-center'
-        = f.select :passion, [['レベル1' , 'レベル1'], ['レベル2' , 'レベル2'], ['レベル3' , 'レベル3'],['レベル4' , 'レベル4'],['レベル5' , 'レベル5']]
 
-    .edit_enjoy_form
-      .edit_enjoy.form-group.row
-        = f.label :enjoy, 'エンジョイレベル', class: 'mr-5', class: 'col-sm-4 text-center'
-        = f.select :enjoy, [['レベル1' , 'レベル1'], ['レベル2' , 'レベル2'], ['レベル3' , 'レベル3'],['レベル4' , 'レベル4'],['レベル5' , 'レベル5']]
-
-    .edit_form.form-group.row
-      = f.label :Performance, '試合実績', class: 'col-sm-4 text-center'
-      = f.text_field :Performance, class: 'team_text form-control' , id: 'team_Performance'
-
-    .edit_form.form-group.row
-      = f.label :discription, '主な活動地域を入力してください', class: 'col-sm-4 text-center'
-      = f.text_field :discription, rows: 5, class: 'team_text form-control', id: 'team_discription'
-
-    .edit_message.form-group.row
-      = f.label :message, 'チームから一言',class: 'col-sm-4 text-center'
-      = f.text_area :message, rows: 5, class: 'team_edit_message form-control', id: 'team_message'
-
-    .team_edit_button.text-center
-      = f.submit 'チーム編集', class: 'edit_button btn-lg btn btn-primary'
-
-  .text-center.team_edit_description
-    p
-      | チーム詳細画面からプロフィールの情報は確認できます！
-      br
-      | 応募者一覧画面を確認してチームに入団希望者がいない確認してみましょう！
-      br
-      |これから他のチームと交流してより良いチームを目指してください！
+    .recruit_new_button.text-center
+      = f.submit '募集掲示板作成', class: 'recruit_button btn-lg btn btn-success'

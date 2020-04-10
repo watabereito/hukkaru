@@ -2,14 +2,14 @@
   =link_to 'ホーム', teams_path, class: 'nav-link'
 
 .text-center
-  .team_title
+  .recruit_title
     h1　募集内容作成！
 
-.text-center.team_sub
+.recruit_sub.text-center
   p
-    | マイチームを作って
+    | 募集掲示板を作って
     br
-    | 自分と一緒にフットサルを一緒にやってくれる人を募集しよう！
+    | 一緒にフットサルを一緒にやってくれる人を募集しよう！
 
 
 .form_errors.text-center
@@ -32,5 +32,11 @@
     = f.label :body, 'チームから一言',class: 'col-sm-4 text-center'
     = f.text_area :body, rows: 5, class: 'team_new_message form-control', id: 'recruit_body'
 
+  .new_recruit_form
+    .new_recruit.form-group.row
+      = f.label :team_name, '募集したいチーム名', class: 'mr-5', class: 'col-sm-4 text-center'
+      = f.collection_select :team_id, Team.all, :id , :name, :prompt => true
+
+
   .recruit_new_button.text-center
-    = f.submit 'チーム作成', class: 'new_button btn-lg btn btn-primary'
+    = f.submit '募集掲示板作成', class: 'recruit_button btn-lg btn btn-success'

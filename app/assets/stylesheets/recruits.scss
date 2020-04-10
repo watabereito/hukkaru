@@ -1,7 +1,27 @@
 // Place all the styles related to the recruits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/*ここからがrecruit/index*/
+.recruit_show_table{
+  width: 1000px;
+  margin: 0px auto;
+}
+/*ここからrecuruit/new*/
 
+.recruit_title{
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.recruit_sub{
+  width: 700px;
+  margin: 10px auto 80px auto;
+}
+.recruit_sub p{
+  font-size: 20px;
+  border: solid 2px #CCCCCC;
+  background-color: #AEFFBD;
+}
 .recruit_new_form input{
   margin: auto;
   width: 700px;
@@ -20,4 +40,76 @@
 .recruit_new_form_area label{
   margin-left: 205px;
   margin-top: 30px;
+}
+
+.new_recruit_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  padding-top: 50px;
+}
+.new_recruit{
+  height: 50px;
+  margin: 0px;
+}
+.new_recruit_form label{
+  margin: auto;
+  font-size: 20px;
+}
+.new_recruit_form input{
+  margin: auto;
+}
+.form-group select{
+  margin: 1px 220px 1px 280px;
+  width: 170px
+}
+
+.recruit_new_button{
+  height: 200px;
+  margin: 40px 280px 0px 280px;
+}
+.recruit_button{
+  margin-top: 40px;
+  width: 250px;
+  height: 80px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+}
+.recruit_button:active{
+  top: 4px;
+  text-shadow: none;
+}
+
+/*ここからprofile_show*/
+
+.comment-wrapper{
+  margin-top: 200px;
+}
+.comment_title p{
+  font-size: 15px;
+}
+.comments_all{
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+.comments_all table{
+  width: 500px;
+  margin-bottom: 0px;
+}
+.comments_all tbody{
+  height: 50px;
+}
+
+.comments_all th{
+  width: 200px;
+  height: 20px;
+}
+.comment_btn{
+  display: flex;
+  font-size: 15px;
+}
+.comment_btn p{
+  text-align: center;
+  margin: auto 5px;
 }

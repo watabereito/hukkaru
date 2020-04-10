@@ -11,7 +11,7 @@
   margin-top: 30px;
   font-family: Courier;
 }
-input[type="text"]{
+.user_new_form input[type="text"]{
         width: 500px;
         height: 40px;
         outline:0;
@@ -36,7 +36,7 @@ input[type="text"]{
 /*ここからがprofile.htmlになる*/
 .profile_edit_title{
   margin: 40px 0px 70px 0px;
-  border-bottom: solid 1px #000000;
+  border-bottom: solid 2px #00FF3B;
 }
 .profile_id, .profile_name, .profile_email{
   height: 150px;
@@ -89,4 +89,99 @@ input[type="text"]{
 .profile_new_button:active{
   top: 4px;
   text-shadow: none;
+}
+
+/*ここからはprofile_show*/
+
+.profile_show_table_all{
+  height: 390px;
+}
+.profile_show_table{
+  width: 1000px;
+  margin: 0px auto;
+}
+.profile_team_show_all td{
+  border: none;
+  margin-top: 15px;
+}
+.profile_team_show_all i{
+  text-align: center;
+}
+
+.profile_team_show_all th{
+  border: none;
+  width: 100px;
+  padding-top: 15px;
+  text-align: center;
+  margin-left: 10px;
+}
+.profile_team_show_table{
+  margin-bottom: 40px;
+  box-shadow: 2px 3px 6px 3px #9E9E9E;
+  width: 320px;
+  margin-left: 40px;
+}
+.profile_team_show_table table{
+  margin-bottom: 0px;
+  margin-left: 25px;
+}
+.profile_team_show_all{
+  display: flex;
+}
+.profile_show_team_name{
+  height: 30px;
+  padding: auto;
+}
+
+.profile_team_show_table h5{
+  font-size: 30px;
+  text-align: center;
+  color: #32CD32;
+  font-family: 'arial black';
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.profile_team_show_table:hover{
+  text-decoration: none;
+  background-color: #CCCCCC;
+}
+
+.my_profile_title{
+  width: 250px;
+  border-left: 3px solid #32CD32;
+  border-bottom: 3px solid #32CD32;
+}
+.recruits_description{
+  background-color: #EEEEEE;
+  height: 700px;
+}
+.hukkaru_recruit_sub, .hukkaru_recruit_main{
+  display: flex;
+  justify-content: center;
+}
+
+.hukkaru_recruit_sub p,.hukkaru_recruit_main p{
+  font-size: 20px;
+  margin-top: 30px;
+  line-height: 30px;
+}
+
+.hukkaru_recruit_main h3{
+  height: 250px;
+  width: 500px;
+  border: solid 1px #000000;
+  margin-right: 20px;
+  padding-top: 20px;
+  margin-bottom: 40px;
+  background-color: #AEFFBD;
+}
+
+.hukkaru_recruit_sub h3{
+  height: 200px;
+  width: 500px;
+  border: solid 1px #000000;
+  margin-right: 30px;
+  padding-top: 20px;
+  background-color: #AEFFBD;
 }

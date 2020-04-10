@@ -5,10 +5,20 @@
 .index_all{
   border-bottom: solid 2px #DDDDDD;
 }
-.index_title{
-  height: 400px;
-}
 
+.index_title_main {
+  font-size: 70px;
+  padding-top: 50px;
+  margin-bottom: 360px;
+}
+.index_title{
+    background-image: url("the-ball-488718_640.jpg");
+    background-repeat: no-repeat;
+    background-size : 1440px ;
+    height: 650px;
+    object-fit: cover;
+  　object-position: 0 0;
+}
 .profile{
 text-align: right;
 }
@@ -36,7 +46,7 @@ color: #33CC00;
   margin-top: 30px;
 }
 
-.hukkaru_description_main h3{
+.hukkaru_description{
   height: 200px;
   width: 500px;
   border: solid 1px #000000;
@@ -45,25 +55,49 @@ color: #33CC00;
   margin-bottom: 40px;
 }
 
+.hukkaru_description{
+line-height: 30px;
+}
 .hukkaru_description_sub h3{
   height: 200px;
   width: 500px;
-  border: solid 1px #000000;
   margin-right: 30px;
   padding-top: 20px;
   margin-bottom: 30px;
+  line-height: 30px;
 }
 
 .index_subtitle{
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-right: 500px;
+
 }
 
 .team_information_all{
- margin-top: 70px;
+ margin-top: 50px;
+}
+
+.photo_none_sub{
+  width: 300px;
+  height: 225px;
+  margin: 5px 10px;
+  background-color: #BBBBBB;
+  color: white;
+}
+
+.photo_none_sub p{
+  padding-top: 40px;
+  font-size: 25px;
+}
+
+.user_team_photo img{
+  width: 300px;
+  height: 225px;
+  margin: 5px 10px;
 }
 /*ここまでがindex*/
 
+/*ここからteam _neww*/
 
 .team_title{
   margin-top: 60px;
@@ -87,7 +121,18 @@ color: #33CC00;
   margin: auto;
   font-size: 20px;
 }
-
+.new_age_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  margin: 0px;
+}
+.new_age_form input{
+  margin: 54px 250px 54px 300px ;
+}
+.new_age_form label{
+  margin: auto;
+  font-size: 20px;
+}
 
 .new_passion_form{
   height: 150px;
@@ -104,6 +149,30 @@ color: #33CC00;
 }
 .new_passion_form input{
   margin: auto;
+}
+.new_passion_form select{
+  width: 120px;
+}
+
+.new_photo_form{
+  height: 150px;
+  border-bottom: solid 1px #CCCCCC;
+  padding-top: 50px;
+}
+.new_photo{
+  height: 50px;
+  margin: 0px;
+}
+.new_photo_form label{
+  margin: auto;
+  margin-left: 200px;
+  font-size: 20px;
+}
+.new_photo_form input{
+  margin: auto;
+}
+.new_photo_form select{
+  width: 120px;
 }
 
 
@@ -123,13 +192,15 @@ color: #33CC00;
 .new_enjoy_form input{
   margin: auto;
 }
-.form-group select{
+.new_enjoy_form select{
   margin: 1px 220px 1px 280px;
   width: 120px
 }
 
 
 .form_message{
+  width: 1100px;
+  margin: 0px auto;
   border-bottom: solid 1px #CCCCCC;
   height: 340px;
 }
@@ -184,7 +255,7 @@ color: #33CC00;
 
 .team_description p{
   width: 750px;
-  border: dashed 1px #3366FF;
+  border: dashed 2px #00FF3B;
   margin: auto;
   font-size: 20px;
   letter-spacing: 1px;
@@ -192,7 +263,22 @@ color: #33CC00;
 .team_description{
   height: 300px;
 }
+
+.new_form input[type="text"]{
+        width: 500px;
+        height: 40px;
+        outline:0;
+}
+.new_age_form input[type="text"]{
+        width: 60px;
+        height: 40px;
+        outline:0;
+}
+
 /*ここまでがteams/new*/
+
+/*ここからがteams_show*/
+
 .my_team{
   font-size: 34px;
   margin-left: 80px;
@@ -200,6 +286,21 @@ color: #33CC00;
   color: #32CD32;
   letter-spacing: 2px;
 }
+.photo_none{
+  margin: auto;
+  width :900px;
+  height: 450px;
+  background-color: #BBBBBB;
+  color: white;
+}
+.photo_none h1{
+  padding-top: 120px;
+}
+.photo_none i{
+  margin-top: 20px;
+  font-size: 10em;
+}
+
 .team_message{
   max-width: 1000px;
   height: 130px;
@@ -213,10 +314,20 @@ color: #33CC00;
 }
 .team_name{
   letter-spacing: 2px;
-  margin-bottom: 270px;
+  margin-bottom: 30px;
   margin-top: 30px;
   color: #FF8C00;
 }
+
+.team_photo {
+  text-align: center;
+}
+.team_photo img{
+  width: 900px;
+  height: 450px;
+
+}
+
 /*ここまでがteams/show*/
 /*ここからがteams/edit*/
 
@@ -339,4 +450,24 @@ height: 2000px;
 }
 .team_edti_description{
   height: 300px;
+}
+
+/*ここからがserach_index*/
+
+.search_all{
+  margin-top: 70px;
+}
+.index_search_title{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.search_all p{
+  width: 530px;
+}
+.search_new_form input[type="text"]{
+  width: 600px;
+  height: 38px;
+}
+.team_information_all h2{
+  color: #32CD32;
 }

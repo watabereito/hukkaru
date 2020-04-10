@@ -1,0 +1,37 @@
+.index_all
+
+.recruit_information_all
+
+  .nav.justify-content-enabled
+    =link_to '募集情報一覧', recruits_path, class: 'nav-link'
+
+  .text-center.team_information_all.mb-5
+    h2
+      | 募集内容確認
+
+table.table.table-hover
+  tbody
+  tr
+    th= Recruit.human_attribute_name(:id)
+    td= @recruit.id
+  tr
+    th= Recruit.human_attribute_name(:title)
+    td= @recruit.title
+  tr
+    th= Recruit.human_attribute_name(:team_id)
+    td= @recruit.team_id
+  tr
+    th= Recruit.human_attribute_name(:Capacity)
+    td= @recruit.Capacity
+
+  tr
+    th= Recruit.human_attribute_name(:body)
+    td= @recruit.body
+
+  tr
+    th= Recruit.human_attribute_name(:created_at)
+    td= @recruit.created_at
+
+.nav.justify-content-center.edit_btn
+  = link_to '編集する', edit_recruit_path, class: 'btn-lg btn btn-success mt-5'
+  = link_to '削除する', "/recruits/#{@recruit.id}", method: :delete, data: { confirm: "タスク「#{@recruit.title}」を削除します。よろしいですか？" }, class: 'btn-lg btn btn-danger mt-5 ml-4'

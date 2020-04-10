@@ -11,9 +11,9 @@ ja:
     task: タスク
   attributes:
     user:
-    id: 登録id
+    id: チームID
     name: ユーザーネーム
-    discription: 活動場所
+    discription: 活動地域
     created_at: 登録日時
     updated_at: 更新日時
     email: メールアドレス

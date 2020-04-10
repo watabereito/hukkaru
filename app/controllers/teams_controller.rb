@@ -3,9 +3,11 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all
     @users = User.all
+    render layout: false
   end
 
-  def list
+  def search
+    @team = Team.search(params[:search])
     @teams = Team.all
   end
 
@@ -31,6 +33,8 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @user_teams = @team.user_teams
+    @user_team = @team.user_teams.new
   end
 
   def edit
@@ -39,15 +43,14 @@ class TeamsController < ApplicationController
   end
 
   def update
-    team = Team.find(params[:id])
-    team.update!(team_params)
-    redirect_to teams_url, notice: "タスク「#{team.name}」を更新しました。"
+    @team = Team.find(params[:id])
+    @team.update!(team_params)
+    redirect_to teams_url, notice: "タスク「#{@team.name}」を更新しました。"
   end
-
   def destroy
-    team = Team.find(params[:id])
-    team.destroy
-    redirect_to teams_url, notice: "タスク「#{team.name}」を削除しました。"
+    @team = Team.find(params[:id])
+    @team.destroy
+    redirect_to teams_url, notice: "タスク「#{@team.name}」を削除しました。"
   end
 
 
@@ -55,8 +58,10 @@ class TeamsController < ApplicationController
 
 
   def team_params
-    params.require(:team).permit(:id, :name, :discription, :age, :message, :passion, :Performance, :enjoy)
+    params.require(:team).permit(:id, :name, :discription, :age, :message,:member, :passion, :Performance,:photo, :enjoy,:photo,:photo_cache,:remove_photo)
   end
+
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end

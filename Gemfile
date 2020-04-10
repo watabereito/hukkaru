@@ -58,3 +58,14 @@ gem 'slim-rails'
 gem 'html2slim'
 gem "letter_opener"
 gem "font-awesome-rails"
+gem 'ransack'
+gem 'composite_primary_keys'
+gem 'devise'
+gem 'carrierwave'
+gem "jquery-rails"
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+end

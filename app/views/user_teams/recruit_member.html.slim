@@ -1,0 +1,22 @@
+.team_information_all
+
+  .text-center.team_information_all.mb-5
+    h2
+      | 応募者一覧
+  .recruit_index_table
+      table.table.table-hover
+        thead.thead-default
+         tr
+          th= UserTeam.human_attribute_name(:title)
+          th= UserTeam.human_attribute_name(:team_id)
+          th= UserTeam.human_attribute_name(:Capacity)
+          th= UserTeam.human_attribute_name(:body)
+          th= UserTeam.human_attribute_name(:created_at)
+        tbody
+          - @user_team.where(status: 1).each do |u|
+            tr
+             td= u.user_id
+             td
+               = link_to '承認',team_user_team_path(u.id),:method => :PUT, class: 'btn btn-success mr-3'
+             td
+               = link_to '承認',user_teams_recruit_member_update_team_user_team_path(u.id),:method => :PUT, class: 'btn btn-success mr-3'

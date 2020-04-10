@@ -1,89 +1,113 @@
-.index_all
-  .index_title
-    .profile
-      =link_to fa_icon("user-circle 4x"),"users/profile_show"
-    .profile
-      =link_to "マイページ" , "users/profile_show"
-    h1.text-center
-        |
-           フッかる！
-  .text-center.index_subtitle
-    p
-      | 自分で作ったチームで仲間たちとフットサルませんか？
+doctype html
+html
+  head
+    title
+      | hukkaru
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'recruits', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .app-title.navbar.navbar-expand-md.navbar-light
+       .title-main
+         = link_to 'フッかる', teams_path, class: 'nav-link'
 
-  .text-center.index_subtitle
-    p
-      | 試合相手の検索、試合交渉やチームの作成
-      br
-      | 近くのチームへの入団を簡単にできるサービスです！
-
-
-.hukkaru_description_all
-  .discription_title.text-center
-    h2 できること
-
-
-  .hukkaru_description_main.text-center
-    h3
-      チームに入団する
-        .text-center.team_sub
+       .ul.navbar-nav
+         - if current_user
+           li.nav-item= link_to 'チーム作成', new_team_path, class: 'home nav-link text-white btn-lg btn btn-success'
+           li.nav-item= link_to 'チーム検索', teams_search_path, class: 'home nav-link text-white btn-lg btn btn-success ml-3'
+           li.nav-item= link_to '募集掲示板一覧', recruits_path, class: 'recruit_btn nav-link text-white btn-lg btn btn-success ml-3'
+           li.nav-item= link_to 'マイページ', users_profile_show_path, class: 'recruit_btn nav-link text-white btn-lg btn btn-success ml-3'
+           li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'logout_btn nav-link btn-lg btn-danger text-white'
+         - else
+          li.nav-item= link_to 'チーム検索', teams_search_path, class: 'log_out_home nav-link text-white btn-lg btn btn-success ml-3'
+          li.nav-item= link_to '募集チーム情報', recruits_path, class: 'log_out_home recruit_btn nav-link text-white btn-lg btn-success ml-3'
+          li.nav-item= link_to '新規登録', new_user_path, class: 'register-btn btn-lg btn btn-success text-white mr-3'
+          li.nav-item= link_to 'ログイン', login_path, class: 'btn-lg btn btn-success text-white'
+    .index_all
+      .index_title
+        h1.text-center.text-white.index_title_main
+            |
+                フッかる！
+        .text-center.index_subtitle.text-white
           p
-            |ユーザー登録して自分が活動した地域を入力すると
+            | 自分で作ったチームで仲間たちとフットサルしてみよう！
             br
-            | その地域付近で活動しているチームが出てきたら希望の
+            | 試合相手の検索、試合交渉やチームの作成
             br
-            | チームに応募しチームから入団が許可されればチーム
-            br
-            |の一員として活動することができるようになります！
+            | 近くのチームへの入団を簡単にできるサービスです！
+      .container
+        .index_main
+
+        .hukkaru_description_main.text-center.mt-5
+          .hukkaru_discription
+            = fa_icon 'users 4x', class: 'icon'
+            h3
+              チームに入団する
+                .text-center.team_sub
+                  p
+                    |ユーザー登録して自分が住んでいる地域を設定して
+                    br
+                    | 住んでいる地域付近で活動しているチーム検索で希望の
+                    br
+                    | チームに応募することでチームから入団が許可がされればチーム
+                    br
+                    |の一員として活動することができるようになります！
 
 
-  .hukkaru_description_sub.text-center
-    h3
-      マイチームを作る
-        .text-center
-          p
-            | チーム名や活動場所、チームのプロフィールを登録
-            br
-            | して後は一緒にったかってくれる仲間を募集するだけ！
-            br
-            | 1チーム月額500円で自分のチームを作ることができます！
+        .hukkaru_description_sub.text-center
+          .hukkaru_discription_sub
+            = fa_icon 'user-plus 4x', class: 'icon'
+            h3
+              マイチームを作る
+                .text-center
+                  p
+                    | チーム名や活動場所、チームのプロフィールを登録
+                    br
+                    | した後は一緒にったかってくれる仲間を募集するだけ！
+                    br
+                    |募集掲示板などを使ってチームメンバーを募集してみよう！
+                    br
+                    | 1チーム月額500円で自分のチームを作ることができます！
+
+            = fa_icon 'search-plus 4x', class: 'icon'
+            h3
+              試合相手を見つけるつける
+                .text-center.team_sub
+                  p
+                    |マイチームが活動している地域付近で活動している別
+                    br
+                    | のチームを検索そして試合を申し込んでみましょう！相手
+                    br
+                    |チームからの了承がもらえると試合が成立します！
 
 
-    h3
-      試合相手を見つけるつける
-        .text-center.team_sub
-          p
-            |活動している地域付近で活動しているチームと
-            br
-            | マッチングすることができ、チーム通しで交渉
-            br
-            |していただき試合することができます！
-
-
-.team_information_all
-
-  .text-center.team_information_all.mb-5
-    h2
-      | チーム一覧
-
-  table.table.table-hover
-   thead.thead-default
-    tr
-      th= Team.human_attribute_name(:name)
-      th= Team.human_attribute_name(:discription)
-      th= Team.human_attribute_name(:age)
-      th= Team.human_attribute_name(:passion)
-      th= Team.human_attribute_name(:enjoy)
-      th= Team.human_attribute_name(:Performance)
-      th= Team.human_attribute_name(:message)
-      th
-   tbody
-    - @teams.each do |team|
-       tr
-         td= link_to team.name, team
-         td= team.discription
-         td= team.age
-         td= team.passion
-         td= team.enjoy
-         td= team.Performance
-         td= team.message
+        .team_information_all
+          .text-center.team_information_all.mb-5
+            h2
+              | 活動チーム一覧
+        .profile_team_show_all
+         .container
+          .row
+            - @teams.each do |team|
+              =link_to(team_path(team.id),class: 'profile_team_show_table')
+                h5 = team.name
+                .user_team_photo
+                  - if team.photo.presence
+                    = image_tag team.photo.url
+                  - else
+                    .photo_none_sub.text-center
+                      p 画像は登録されていません
+                      = fa_icon ("image 4x")
+                  table.table
+                    tbody
+                     tr
+                      th= Team.human_attribute_name(:id)
+                      td= fa_icon("caret-right 2x")
+                      td= team.id
+                     tr
+                      th= Team.human_attribute_name(:discription)
+                      td= fa_icon("caret-right 2x")
+                      td= team.discription

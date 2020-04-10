@@ -24,15 +24,34 @@
   font-size: 40px;
 }
 
+.title-main a{
+    color: #32CD32;
+}
+
 .home{
     color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.home:hover{
+  opacity: 0.9;
+}
+
+.log_out_home{
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.log_out_home:hover{
+  opacity: 0.9;
 }
 
 .app-title{
-  background-color: 	#DDDDDD;
+  background-color: #EEEEEE;
   position: sticky;
   top: 0;
-
 }
 
 textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
@@ -41,8 +60,14 @@ textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
 }
 
 .logout_btn{
-  margin-left: 580px;
+  margin-left: 500px;
+  font-weight: bold;
 }
+
+.logout_btn:hover{
+  opacity: 0.9;
+}
+
 .register-btn{
-  margin-left: 900px;
+  margin-left: 600px;
 }
